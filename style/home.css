@@ -1,0 +1,67 @@
+#container {
+    /* border: solid red 1px; */
+    /* height: 1500px; */
+    width: 90%;
+    margin: auto;
+    background-color: gainsboro;
+  }
+  #slides {
+    /* border: solid black 1px; */
+    width: 70%;
+    height: 300px;
+    margin: auto;
+  }
+  #slides img {
+    width: 100%;
+  }
+
+  #catagories {
+    /* border: solid black 1px; */
+    /* height: 100px; */
+    width: 90%;
+    margin: auto;
+    padding: 1%;
+    display: grid;
+    grid-template-columns: repeat(7, 12%);
+    gap: 2%;
+    justify-content: space-between;
+    font-weight: normal;
+    color: tomato;
+  }
+  #catagories div {
+    /* border: solid black 1px; */
+    text-align: center;
+    margin-top: 20px;
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
+    box-shadow: rgba(247, 244, 244, 0.1) 0px 10px 15px -3px,
+      rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    background-color: rgb(245, 245, 245);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  /* #catagories div p{
+margin: 0; 
+} */
+  #img_cover {
+    /* border: solid rgb(90, 82, 82) 1px; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+      rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 80px;
+    width: 100%;
+    height: 150px;
+  }
+  #catagories div img {
+    width: 100%;
+    height: 100%;
+    border-radius: 80px;
+  }
+
+  .cont_heading {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: 150%;
+    letter-spacing: 10px;
+    font-weight: normal;
+    padding: 2%;
+  }

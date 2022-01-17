@@ -1,0 +1,91 @@
+body {
+    background-image: url();
+    font-size: 16px;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    /* background-color: gainsboro; */
+  }
+  img {
+    height: 100%;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+  }
+  *:focus {
+    outline: none;
+  }
+  #navcover {
+    /* border: 1px solid black; */
+    height: 50px;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: gainsboro;
+  }
+
+  #navcover div:nth-child(1) {
+    /* border: solid red 1px; */
+    flex: 0.7;
+  }
+
+  #navcover div:nth-child(2) {
+    flex: 9;
+    /* border: blue solid 1px; */
+    text-align: center;
+  }
+  #quote {
+    color: indianred;
+  }
+
+  #navcover div:nth-child(3) {
+    flex: 4;
+    /* border: solid red 1px; */
+  }
+
+  ul {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+  }
+
+  #search_cover {
+    width: 92%;
+    margin: auto;
+    /* border: blue solid 1px; */
+    height: 50px;
+    text-align: center;
+    /* margin-top: 5px; */
+    background-color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  #search_cover img{
+    height: 80%;
+  }
+  #search_in {
+    padding: 0px;
+    color: black;
+    height: 80%;
+    width: 40%;
+    vertical-align: top;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #000;
+  }
+
+  #header{
+    position: sticky;
+    top: 0;
+  }
+ 
+  hr{
+    margin: 0px;
+    padding: 0px;
+  }

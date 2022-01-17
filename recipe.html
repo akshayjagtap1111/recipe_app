@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/header.css" />
+    <link rel="stylesheet" href="./style/recipe.css">
+  </head>
+  <style>
+   
+   
+  </style>
+  <body>
+    <div id="header"></div>
+
+    <div id="container">
+      <p>Let's Make It</p>
+
+      <!-- <div id="img_div"></div>
+
+      <div id="ingerdient"></div>
+
+      <div id="procedure"></div>
+
+      <div id="video"></div>-->
+    </div>
+  </body>
+</html>
+
+<script type="module">
+  let header = document.getElementById("header");
+
+  import head_data from "./components/header.js";
+
+  header.innerHTML = head_data();
+
+  import { quots_func, slider } from "./scripts/nav_script.js";
+
+  quots_func();
+
+  import { get_dishData, append_dish } from "./scripts/recipe.js";
+
+  let dish_id = JSON.parse(localStorage.getItem("dish_id"));
+
+  let dishData = await get_dishData(dish_id);
+
+  console.log("after await", dishData);
+
+  let dish_data_arr = dishData.meals[0];
+
+  console.log(dish_data_arr);
+  append_dish(dish_data_arr);
+
+  
+
+  // search and append
+
+import get_search from "./scripts/search.js"
+
+let input=document.getElementById("search_in");
+
+input.addEventListener("keypress",function(e){
+
+  if(e.key==="Enter"){
+
+  get_search(input).then(function(res){
+    console.log(res.meals)
+    if(res.meals){
+      localStorage.setItem("search_result",JSON.stringify(res.meals)); 
+
+      window.location.href="search_results.html"
+    }
+  });
+  
+  }
+
+});
+</script>

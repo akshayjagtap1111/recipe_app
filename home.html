@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/header.css" />
+    <link rel="stylesheet" href="./style/home.css">
+    <style>
+   
+    </style>
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <div id="container">
+      <p class="cont_heading">Lets Make It</p>
+      <div id="slides">
+        <img
+          src="https://d4t7t8y8xqo0t.cloudfront.net/app//resized/720X280/restaurant/637818/restaurant020160823112423.jpg"
+          id="slider_img"
+        />
+      </div>
+
+      <p class="cont_heading">... Explore catagories ...</p>
+      <div id="catagories"></div>
+    </div>
+  </body>
+</html>
+
+<script type="module">
+  let header = document.getElementById("header");
+
+  import head_data from "./components/header.js";
+
+  header.innerHTML = head_data();
+
+  import { quots_func, slider } from "./scripts/nav_script.js";
+
+  quots_func();
+
+  let slider_img = document.getElementById("slider_img");
+
+  slider(slider_img);
+
+  import { get_type_data, append_type_data } from "./scripts/getdata.js";
+
+  let data = await get_type_data();
+
+  console.log(data);
+
+  let cat_div = document.getElementById("catagories");
+  append_type_data(data.categories, cat_div);
+
+
+  // search and append
+
+import get_search from "./scripts/search.js"
+
+let input=document.getElementById("search_in");
+
+input.addEventListener("keypress",function(e){
+
+  if(e.key==="Enter"){
+
+  get_search(input).then(function(res){
+    console.log(res.meals)
+    if(res.meals){
+      localStorage.setItem("search_result",JSON.stringify(res.meals)); 
+
+      window.location.href="search_results.html"
+    }
+  });
+  
+  }
+
+});
+</script>

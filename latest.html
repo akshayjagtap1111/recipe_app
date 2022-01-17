@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+<link rel="stylesheet" href="./style/header.css">
+
+<link rel="stylesheet" href="./style/grid_display.css">
+  </head>
+  <body>
+    <div id="header">
+     
+      
+    </div>
+
+    <div id="container"></div>
+  </body>
+</html>
+
+<script type="module">
+
+let header=document.getElementById("header");
+
+import head_data from "./components/header.js"
+
+header.innerHTML=head_data();
+
+
+import {quots_func,slider} from "./scripts/nav_script.js"
+
+quots_func()
+
+
+
+// search and append
+
+import get_search from "./scripts/search.js"
+
+let input=document.getElementById("search_in");
+
+input.addEventListener("keypress",function(e){
+
+  if(e.key==="Enter"){
+
+  get_search(input).then(function(res){
+    console.log(res.meals)
+    if(res.meals){
+      localStorage.setItem("search_result",JSON.stringify(res.meals)); 
+
+      window.location.href="search_results.html"
+    }
+  });
+  
+  }
+
+});
+
+import get_latest_data from "./scripts/latest.js"
+
+import{append_categoryData} from "./scripts/category_meals.js"
+
+let latest_data_arr= (await get_latest_data()).meals;
+
+console.log(latest_data_arr)
+
+let container=document.getElementById("container")
+append_categoryData(latest_data_arr,container)
+
+// console.log()
+</script>

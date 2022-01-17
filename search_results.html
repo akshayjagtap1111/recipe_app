@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+<link rel="stylesheet" href="./style/header.css">
+<link rel="stylesheet" href="./style/grid_display.css">
+<style>
+
+</style>
+  </head>
+  <body>
+    <div id="header">
+     
+      
+    </div>
+
+    <div id="container">
+
+      <p id="search_name"></p>
+    </div>
+  </body>
+</html>
+
+<script type="module">
+
+let header=document.getElementById("header");
+
+import head_data from "./components/header.js"
+
+header.innerHTML=head_data();
+
+
+import {quots_func,slider} from "./scripts/nav_script.js"
+
+quots_func()
+
+
+// search and append
+
+import get_search from "./scripts/search.js"
+
+let input=document.getElementById("search_in");
+
+let container = document.getElementById("container");
+
+input.addEventListener("keypress",function(e){
+
+
+  if(e.key==="Enter"){
+
+  get_search(input).then(function(res){
+    console.log(res.meals)
+    if(res.meals){
+
+      localStorage.setItem("search_result",JSON.stringify(res.meals)); 
+
+      window.location.href="search_results.html"
+    }
+  });
+  
+  }
+
+});
+
+import{append_categoryData} from "./scripts/category_meals.js"
+
+let search_result=JSON.parse(localStorage.getItem("search_result"))
+
+
+
+ append_categoryData(search_result,container)
+
+// console.log(input)
+
+</script>
