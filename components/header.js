@@ -1,7 +1,7 @@
 function head_data(){
     return` <div id="navcover">
     <div>
-      <a href="home.html"
+      <a href="index.html"
         ><img
           src="https://www.pngall.com/wp-content/uploads/8/Cooking-Recipe.png"
           alt=""
